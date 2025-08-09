@@ -1,12 +1,13 @@
 import { cookies } from "next/headers";
 import { adminAuth } from "@/lib/firebase/adminApp";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
-  const cookieStore = await cookies(); // await aqui!
+  const cookieStore = await cookies();
   const sessionCookie = cookieStore.get("session")?.value;
 
   if (!sessionCookie) {
-    return <p>Acesso negado. Faça login.</p>;
+    redirect("/");
   }
 
   try {

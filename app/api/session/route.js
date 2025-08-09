@@ -5,10 +5,6 @@ export async function POST(request) {
   try {
     const { idToken } = await request.json();
 
-    // Valida o token recebido
-    const decodedToken = await adminAuth.verifyIdToken(idToken);
-
-    // Cria um cookie seguro (24h)
     const expiresIn = 60 * 60 * 24 * 1000;
     const sessionCookie = await adminAuth.createSessionCookie(idToken, { expiresIn });
 
