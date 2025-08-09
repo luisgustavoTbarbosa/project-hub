@@ -1,5 +1,7 @@
 import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -50,6 +52,12 @@ export default function Home() {
           >
             Read our docs
           </a>
+          <Button asChild>
+            <Link href="/login">Login</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/dashboard">Dashboard</Link>
+          </Button>
           <ModeToggle />
         </div>
       </main>
