@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { SidebarTrigger } from "./ui/sidebar";
 
 export default function Header() {
   const router = useRouter();
@@ -44,7 +45,7 @@ export default function Header() {
 
   return (
     <header className="flex items-center justify-between px-8 py-4 border-b">
-      <h1 className="font-medium">ProjectHub</h1>
+      <SidebarTrigger />
       <div className="flex gap-2">
         <div className="flex items-center gap-2">
           <Avatar>
@@ -53,7 +54,7 @@ export default function Header() {
           </Avatar>
           <div className="flex flex-col">
             <p className="text-sm">{userName || "Carregando..."}</p>
-            <p className="text-sm font-light text-muted-foreground">Product Manager</p>
+            <p className="text-xs font-medium text-muted-foreground">Product Manager</p>
           </div>
         </div>
         <ModeToggle />
